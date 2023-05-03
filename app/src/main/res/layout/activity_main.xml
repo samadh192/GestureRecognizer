@@ -26,7 +26,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="8dp"
                 android:background="@drawable/rounded_corners"
-                android:contentDescription="@string/paintViewContentDescription"/>
+                android:contentDescription="@string/paintViewContentDescription" />
 
             <TextView
                 android:id="@+id/textView"
@@ -40,7 +40,7 @@
                 android:includeFontPadding="true"
                 android:textAlignment="center"
                 android:text=""
-                android:textColor="@color/white"
+                android:textColor="@color/draw_blue"
                 android:textSize="15sp"
                 tools:ignore="RtlCompat" />
 
@@ -64,7 +64,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/rounded_corners"
                 android:text="@string/clear"
-                android:textColor="@color/white"
+                android:textColor="@color/draw_blue"
                 tools:ignore="NestedWeights" />
 
             <androidx.appcompat.widget.AppCompatButton
@@ -75,7 +75,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/rounded_corners"
                 android:text="@string/submit"
-                android:textColor="@color/white" />
+                android:textColor="@color/draw_blue" />
         </LinearLayout>
     </LinearLayout>
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Draw</string>
+    <string name="app_name">Gesture Recognizer</string>
     <string name="clear">Clear</string>
     <string name="submit">Submit</string>
     <string name="paintViewContentDescription">View for drawing Gestures!</string>
