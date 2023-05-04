@@ -16,8 +16,4 @@ public class Point {
     public double getY() {
         return Y;
     }
-
-    public String getCoordinates() {
-        return String.format("(%s,%s)",X,Y);
-    }
 }

@@ -1,6 +1,7 @@
 package com.example.gesturerecognizer.Recognition;
 
 import com.example.gesturerecognizer.Common.Point;
+
 import static com.example.gesturerecognizer.Recognition.Utils.heapPermute;
 import static com.example.gesturerecognizer.Recognition.Utils.makeUnistrokes;
 

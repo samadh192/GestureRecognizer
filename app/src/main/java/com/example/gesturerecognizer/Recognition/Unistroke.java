@@ -1,7 +1,5 @@
 package com.example.gesturerecognizer.Recognition;
 
-import com.example.gesturerecognizer.Common.Point;
-
 import static com.example.gesturerecognizer.Recognition.Utils.calcStartUnitVector;
 import static com.example.gesturerecognizer.Recognition.Utils.getIndicativeAngle;
 import static com.example.gesturerecognizer.Recognition.Utils.resample;
@@ -10,11 +8,11 @@ import static com.example.gesturerecognizer.Recognition.Utils.scaleDimTo;
 import static com.example.gesturerecognizer.Recognition.Utils.translateTo;
 import static com.example.gesturerecognizer.Recognition.Utils.vectorize;
 
-
 import android.util.Log;
 
+import com.example.gesturerecognizer.Common.Point;
+
 import java.util.ArrayList;
-import java.util.Locale;
 
 public class Unistroke {
     int numPoints;
@@ -29,8 +27,6 @@ public class Unistroke {
     ArrayList<Point> points;
     Point origin;
 
-
-
     public Unistroke(String name, boolean boundedRotationInvariance, ArrayList<Point> points) {
         this.name = name;
         this.boundedRotationInvariance = boundedRotationInvariance;
@@ -38,13 +34,13 @@ public class Unistroke {
         this.numPoints = 96;
         this.squareSize = 250.0;
         this.oneDThreshold = 0.25;
-        this.origin = new Point(0,0);
-        this.startAngleIndex = numPoints/8;
+        this.origin = new Point(0, 0);
+        this.startAngleIndex = numPoints / 8;
 
         this.points = resample(points, this.numPoints);
-        Log.println(Log.ASSERT,"Unistroke",String.format("Name:%s, Points:%s",this.name,this.points.size()));
+        Log.println(Log.ASSERT, "Unistroke", String.format("Name:%s, Points:%s", this.name, this.points.size()));
         this.indicativeAngle = getIndicativeAngle(this.points);
-        this.points = rotateBy(this.points,-this.indicativeAngle);
+        this.points = rotateBy(this.points, -this.indicativeAngle);
         this.points = scaleDimTo(this.points, this.squareSize, this.oneDThreshold);
         if (this.boundedRotationInvariance)
             this.points = rotateBy(this.points, this.indicativeAngle);

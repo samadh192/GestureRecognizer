@@ -18,7 +18,6 @@ import org.json.JSONException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     Button clearButton;
@@ -44,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
 
         try {
             gestures = JsonUtils.readGestureFromJson(this);
-            for(int i=0;i<gestures.size();i++) {
-                recognizer.AddGesture(gestures.get(i).getName(),true,gestures.get(i).getStrokes());
+            for (int i = 0; i < gestures.size(); i++) {
+                recognizer.AddGesture(gestures.get(i).getName(), true, gestures.get(i).getStrokes());
             }
         } catch (IOException | JSONException e) {
             throw new RuntimeException(e);

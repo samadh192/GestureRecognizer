@@ -8,7 +8,7 @@ public class Result {
     public Result(String gesture, double confidence, long timeOfExecution) {
         this.gesture = gesture.split("-")[0];
         this.confidence = confidence;
-        this.timeOfExecution = (long) (Math.round(timeOfExecution*100)/100.0);
+        this.timeOfExecution = (long) (Math.round(timeOfExecution * 100) / 100.0);
     }
 
     public long getTimeOfExecution() {
@@ -19,23 +19,11 @@ public class Result {
         return gesture;
     }
 
-    public void setGesture(String gesture) {
-        this.gesture = gesture;
-    }
-
-    public double getConfidence() {
-        return confidence;
-    }
-
-    public void setConfidence(double confidence) {
-        this.confidence = confidence;
-    }
-
     public String getResultString() {
-        return String.format("Gesture: %s Confidence: %s%% Time:%sms",getGesture(), getConfidencePercentage(), getTimeOfExecution());
+        return String.format("Gesture: %s Confidence: %s%% Time:%sms", getGesture(), getConfidencePercentage(), getTimeOfExecution());
     }
 
     private int getConfidencePercentage() {
-        return (int) Math.round(this.confidence*100);
+        return (int) Math.round(this.confidence * 100);
     }
 }

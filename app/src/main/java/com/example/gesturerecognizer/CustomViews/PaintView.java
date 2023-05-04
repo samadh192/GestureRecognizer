@@ -38,6 +38,7 @@ public class PaintView extends View {
         drawPaint.setStrokeJoin(Paint.Join.ROUND);
         drawPaint.setStrokeCap(Paint.Cap.ROUND);
     }
+
     public void clear() {
         path.reset();
         strokes.clear();
@@ -56,11 +57,11 @@ public class PaintView extends View {
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 path.moveTo(pointX, pointY);
-                stroke.add(new Point((int)pointX,(int)pointY));
+                stroke.add(new Point((int) pointX, (int) pointY));
                 return true;
             case MotionEvent.ACTION_MOVE:
                 path.lineTo(pointX, pointY);
-                stroke.add(new Point((int)pointX,(int)pointY));
+                stroke.add(new Point((int) pointX, (int) pointY));
                 break;
             case MotionEvent.ACTION_UP:
                 strokes.add(new ArrayList<>(stroke));

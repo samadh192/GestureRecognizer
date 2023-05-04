@@ -23,20 +23,20 @@ public class JsonUtils {
         JSONObject jsonRoot = new JSONObject(jsonString);
         Iterator<String> keys = jsonRoot.keys();
         ArrayList<Gesture> gestureArrayList = new ArrayList<>();
-        while(keys.hasNext()){
+        while (keys.hasNext()) {
             String key = keys.next();
             if (jsonRoot.get(key) instanceof JSONArray) {
                 JSONArray multiStrokeArray = jsonRoot.getJSONArray(key);
-                for(int i=0;i<multiStrokeArray.length();i++){
+                for (int i = 0; i < multiStrokeArray.length(); i++) {
                     JSONArray uniStrokeArray = multiStrokeArray.getJSONArray(i);
-                    for(int j=0;j<uniStrokeArray.length();j++){
+                    for (int j = 0; j < uniStrokeArray.length(); j++) {
                         JSONArray point = uniStrokeArray.getJSONArray(j);
-                        stroke.add(new Point(point.getDouble(0),point.getDouble(1)));
+                        stroke.add(new Point(point.getDouble(0), point.getDouble(1)));
                     }
                     strokes.add(new ArrayList<>(stroke));
                     stroke.clear();
                 }
-                gestureArrayList.add(new Gesture(key,new ArrayList<>(strokes)));
+                gestureArrayList.add(new Gesture(key, new ArrayList<>(strokes)));
                 strokes.clear();
             }
         }
@@ -47,9 +47,9 @@ public class JsonUtils {
         InputStream inputStream = context.getResources().openRawResource(resId);
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
         StringBuilder stringBuilder = new StringBuilder();
-        String s = null;
-        while((s = bufferedReader.readLine())!=null) {
-            stringBuilder.append(s);
+        String str;
+        while ((str = bufferedReader.readLine()) != null) {
+            stringBuilder.append(str);
             stringBuilder.append("\n");
         }
         return stringBuilder.toString();

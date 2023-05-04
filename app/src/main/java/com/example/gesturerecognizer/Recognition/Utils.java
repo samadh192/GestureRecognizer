@@ -19,10 +19,10 @@ public class Utils {
         resampledPoints.add(firstPoint);
         int i = 1;
         while (i < points.size()) {
-            double d = getDistance(points.get(i-1), points.get(i));
+            double d = getDistance(points.get(i - 1), points.get(i));
             if ((D + d) >= I) {
-                double qx = points.get(i-1).getX() + ((I - D) / d) * (points.get(i).getX() - points.get(i-1).getX());
-                double qy = points.get(i-1).getY() + ((I - D) / d) * (points.get(i).getY() - points.get(i-1).getY());
+                double qx = points.get(i - 1).getX() + ((I - D) / d) * (points.get(i).getX() - points.get(i - 1).getX());
+                double qy = points.get(i - 1).getY() + ((I - D) / d) * (points.get(i).getY() - points.get(i - 1).getY());
                 Point q = new Point(qx, qy);
                 resampledPoints.add(q);
                 points.add(i, q);
@@ -33,7 +33,7 @@ public class Utils {
             i++;
         }
         if (resampledPoints.size() == n - 1) {
-            Point lastPoint = new Point(points.get(points.size()-1).getX(), points.get(points.size()-1).getY());
+            Point lastPoint = new Point(points.get(points.size() - 1).getX(), points.get(points.size() - 1).getY());
             resampledPoints.add(lastPoint);
         }
         return resampledPoints;
@@ -77,6 +77,7 @@ public class Utils {
         }
         return vector;
     }
+
     public static void heapPermute(int n, ArrayList<Integer> order, ArrayList<ArrayList<Integer>> orders) {
         if (n == 1) {
             orders.add(new ArrayList<>(order)); // append copy of order to orders list when n == 1
@@ -130,17 +131,6 @@ public class Utils {
         return Math.acos(c);
     }
 
-    public static double getOptimalCosineDistance(double[] v1, double[] v2) {
-        double a = 0.0;
-        double b = 0.0;
-        for (int i = 0; i < v1.length; i += 2) {
-            a += v1[i] * v2[i] + v1[i+1] * v2[i+1];
-            b += v1[i] * v2[i+1] - v1[i+1] * v2[i];
-        }
-        double angle = Math.atan(b / a);
-        return Math.acos(a * Math.cos(angle) + b * Math.sin(angle));
-    }
-
     public static double getDistanceAtBestAngle(ArrayList<Point> pointsA, ArrayList<Point> pointsB, double a, double b, double threshold) {
         double x1 = Phi * a + (1.0 - Phi) * b;
         double f1 = getDistanceAtAngle(pointsA, pointsB, x1);
@@ -163,9 +153,10 @@ public class Utils {
         }
         return Math.min(f1, f2);
     }
+
     public static double getPathDistance(ArrayList<Point> pts1, ArrayList<Point> pts2) {
-        Log.println(Log.ASSERT,"TEST",String.format("pts1->length:%s",pts1.size()));
-        Log.println(Log.ASSERT,"TEST",String.format("pts2->length:%s",pts2.size()));
+        Log.println(Log.ASSERT, "TEST", String.format("pts1->length:%s", pts1.size()));
+        Log.println(Log.ASSERT, "TEST", String.format("pts2->length:%s", pts2.size()));
         double d = 0.0;
         for (int i = 0; i < pts1.size(); i++) {
             d += getDistance(pts1.get(i), pts2.get(i));
@@ -183,10 +174,10 @@ public class Utils {
         double cosine = Math.cos(radians);
         double sine = Math.sin(radians);
         ArrayList<Point> newPoints = new ArrayList<>();
-        for (int i=0;i<points.size();i++) {
+        for (int i = 0; i < points.size(); i++) {
             double qx = ((points.get(i).getX() - c.getX()) * cosine - (points.get(i).getY() - c.getY()) * sine + c.getX());
             double qy = ((points.get(i).getX() - c.getX()) * sine + (points.get(i).getY() - c.getY()) * cosine + c.getY());
-            newPoints.add(new Point(qx,qy));
+            newPoints.add(new Point(qx, qy));
         }
         return newPoints;
     }
@@ -201,14 +192,14 @@ public class Utils {
         }
         boolean uniformly = Math.min(R.getWidth() / R.getHeight(), R.getHeight() / R.getWidth()) <= ratio1D;
         ArrayList<Point> newPoints = new ArrayList<>();
-        for (int i=0;i<points.size();i++) {
+        for (int i = 0; i < points.size(); i++) {
             double qx = points.get(i).getX() * (size / Math.max(R.getWidth(), R.getHeight()));
             double qy = points.get(i).getY() * (size / Math.max(R.getWidth(), R.getHeight()));
             if (!uniformly) {
                 qx = points.get(i).getX() * (size / R.getWidth());
                 qy = points.get(i).getY() * (size / R.getHeight());
             }
-            newPoints.add(new Point(qx,qy));
+            newPoints.add(new Point(qx, qy));
         }
         return newPoints;
     }
@@ -216,10 +207,10 @@ public class Utils {
     public static ArrayList<Point> translateTo(ArrayList<Point> points, Point pt) {
         Point centroid = getCentroid(points);
         ArrayList<Point> newPoints = new ArrayList<>();
-        for (int i=0;i<points.size();i++) {
+        for (int i = 0; i < points.size(); i++) {
             double qx = points.get(i).getX() + pt.getX() - centroid.getX();
             double qy = points.get(i).getY() + pt.getY() - centroid.getY();
-            newPoints.add(new Point(qx,qy));
+            newPoints.add(new Point(qx, qy));
         }
         return newPoints;
     }
@@ -231,7 +222,7 @@ public class Utils {
     public static double[] calcStartUnitVector(ArrayList<Point> points, int index) {
         double[] v = {points.get(index).getX() - points.get(0).getX(), points.get(index).getY() - points.get(0).getY()};
         double len = Math.sqrt((v[0] * v[0]) + (v[1] * v[1]));
-        return new double[] {v[0] / len, v[1] / len};
+        return new double[]{v[0] / len, v[1] / len};
     }
 
     public static double getIndicativeAngle(ArrayList<Point> points) {
@@ -254,7 +245,7 @@ public class Utils {
     public static double getPathLength(ArrayList<Point> points) {
         double length = 0.0;
         for (int i = 1; i < points.size(); i++) {
-            length += getDistance(points.get(i-1), points.get(i));
+            length += getDistance(points.get(i - 1), points.get(i));
         }
         return length;
     }
@@ -262,6 +253,6 @@ public class Utils {
     public static double getDistance(Point p1, Point p2) {
         double dx = p2.getX() - p1.getX();
         double dy = p2.getY() - p1.getY();
-        return Math.sqrt(dx*dx + dy*dy);
+        return Math.sqrt(dx * dx + dy * dy);
     }
 }

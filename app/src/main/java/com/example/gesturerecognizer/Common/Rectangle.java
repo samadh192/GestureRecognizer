@@ -5,19 +5,12 @@ public class Rectangle {
     private final double Y;
     private double width;
     private double height;
+
     public Rectangle(int x, int y, int width, int height) {
         this.X = x;
         this.Y = y;
         this.width = width;
         this.height = height;
-    }
-
-    public double getX() {
-        return X;
-    }
-
-    public double getY() {
-        return Y;
     }
 
     public double getWidth() {
@@ -30,9 +23,5 @@ public class Rectangle {
 
     public void setHeight(double height) {
         this.height = height;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
     }
 }
