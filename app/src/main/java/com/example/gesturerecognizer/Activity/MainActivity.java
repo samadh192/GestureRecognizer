@@ -1,17 +1,19 @@
 package com.example.gesturerecognizer.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.gesturerecognizer.Common.Point;
+import com.example.gesturerecognizer.Common.Result;
 import com.example.gesturerecognizer.CustomViews.PaintView;
 import com.example.gesturerecognizer.R;
+import com.example.gesturerecognizer.Recognition.Recognizer;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
     Button clearButton;
@@ -19,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
     PaintView paintView;
     ArrayList<ArrayList<Point>> strokes;
     TextView textView;
+    Recognizer recognizer;
+    Result result;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         submitButton = findViewById(R.id.submitButton);
         textView = findViewById(R.id.textView);
 
+        recognizer = new Recognizer(true);
+
 
         clearButton.setOnClickListener(v -> {
             paintView.clear();
@@ -38,7 +44,14 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton.setOnClickListener(v -> {
             strokes = paintView.getStrokes();
-            textView.setText(String.format("Number of strokes:%s",strokes.size()));
+//            strokes = new ArrayList<>(
+//                    Arrays.asList(
+//                            new ArrayList<>(Arrays.asList(new Point(30,7), new Point(103,7)))
+////                            new ArrayList<>(Arrays.asList(new Point(66,7), new Point(66,87)))
+//                    )
+//            );ß
+            result = recognizer.Recognize(strokes);
+            textView.setText(result.getResultString());
         });
     }
 }

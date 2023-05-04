@@ -1,19 +1,23 @@
 package com.example.gesturerecognizer.Common;
 
 public class Point {
-    private final int X;
-    private final int Y;
+    private final double X;
+    private final double Y;
 
-    public Point(int x, int y) {
+    public Point(double x, double y) {
         X = x;
         Y = y;
     }
 
-    public int getX() {
+    public double getX() {
         return X;
     }
 
-    public int getY() {
+    public double getY() {
         return Y;
+    }
+
+    public String getCoordinates() {
+        return String.format("(%s,%s)",X,Y);
     }
 }
