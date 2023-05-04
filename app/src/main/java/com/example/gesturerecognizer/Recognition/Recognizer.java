@@ -51,6 +51,7 @@ public class Recognizer {
     }
 
     public Result Recognize(ArrayList<ArrayList<Point>> strokes) {
+        long startTime = System.currentTimeMillis();
         ArrayList<Point> points = combineStrokes(strokes);
         Unistroke candidate = new Unistroke("Candidate",true,points);
         int u = -1;
@@ -66,11 +67,12 @@ public class Recognizer {
                 }
             }
         }
+        long endTime = System.currentTimeMillis();
         if (u==-1) {
-            return new Result("No Match!",0.0);
+            return new Result("No Match!",0.0, endTime-startTime);
         }
         else{
-            return new Result(this.multistrokes.get(u).Name,(1.0-b/this.halfDiagonal));
+            return new Result(this.multistrokes.get(u).Name, (1.0-b/this.halfDiagonal), (endTime-startTime));
         }
     }
 }
