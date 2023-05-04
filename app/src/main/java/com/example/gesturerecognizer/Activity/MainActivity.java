@@ -59,12 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
         submitButton.setOnClickListener(v -> {
             strokes = paintView.getStrokes();
-//            strokes = new ArrayList<>(
-//                    Arrays.asList(
-//                            new ArrayList<>(Arrays.asList(new Point(30,7), new Point(103,7)))
-////                            new ArrayList<>(Arrays.asList(new Point(66,7), new Point(66,87)))
-//                    )
-//            );ß
             result = recognizer.Recognize(strokes);
             textView.setText(result.getResultString());
         });

@@ -31,7 +31,7 @@ public class PaintView extends View {
         setFocusable(true);
         setFocusableInTouchMode(true);
         drawPaint = new Paint();
-        drawPaint.setColor(ContextCompat.getColor(context, R.color.draw_blue));
+        drawPaint.setColor(ContextCompat.getColor(context, R.color.off_white));
         drawPaint.setAntiAlias(true);
         drawPaint.setStrokeWidth(20);
         drawPaint.setStyle(Paint.Style.STROKE);

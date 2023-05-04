@@ -5,7 +5,7 @@ public class Result {
     double confidence;
 
     public Result(String gesture, double confidence) {
-        this.gesture = gesture;
+        this.gesture = gesture.split("-")[0];
         this.confidence = confidence;
     }
 
@@ -26,6 +26,10 @@ public class Result {
     }
 
     public String getResultString() {
-        return String.format("Gesture: %s Confidence: %s",this.gesture, this.confidence);
+        return String.format("Gesture: %s Confidence: %s%%",getGesture(), getConfidencePercentage());
+    }
+
+    private int getConfidencePercentage() {
+        return (int) Math.round(this.confidence*100);
     }
 }
