@@ -31,19 +31,19 @@ public class Recognizer {
         this.halfDiagonal = 0.5 * diagonal;
         this.multistrokes = new ArrayList<>();
 
-        this.multistrokes.add(new Multistroke("T",this.boundedRotationInvariance,new ArrayList<>(
-                Arrays.asList(
-                        new ArrayList<>(Arrays.asList(new Point(30,7), new Point(103,7))),
-                        new ArrayList<>(Arrays.asList(new Point(66,7), new Point(66,87)))
-                )
-        )));
-        this.multistrokes.add(new Multistroke("N",this.boundedRotationInvariance,new ArrayList<>(
-                Arrays.asList(
-                        new ArrayList<>(Arrays.asList(new Point(177,92),new Point(177,2))),
-                        new ArrayList<>(Arrays.asList(new Point(182,1),new Point(246,95))),
-                        new ArrayList<>(Arrays.asList(new Point(247,87),new Point(247,1)))
-                )
-        )));
+//        this.multistrokes.add(new Multistroke("T",this.boundedRotationInvariance,new ArrayList<>(
+//                Arrays.asList(
+//                        new ArrayList<>(Arrays.asList(new Point(30,7), new Point(103,7))),
+//                        new ArrayList<>(Arrays.asList(new Point(66,7), new Point(66,87)))
+//                )
+//        )));
+//        this.multistrokes.add(new Multistroke("N",this.boundedRotationInvariance,new ArrayList<>(
+//                Arrays.asList(
+//                        new ArrayList<>(Arrays.asList(new Point(177,92),new Point(177,2))),
+//                        new ArrayList<>(Arrays.asList(new Point(182,1),new Point(246,95))),
+//                        new ArrayList<>(Arrays.asList(new Point(247,87),new Point(247,1)))
+//                )
+//        )));
     }
 
     public void AddGesture(String name, boolean boundedRotationInvariance, ArrayList<ArrayList<Point>> strokes) {
