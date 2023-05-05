@@ -6,7 +6,7 @@ public class Result {
     double confidence;
 
     public Result(String gesture, double confidence, long timeOfExecution) {
-        this.gesture = gesture.split("-")[0];
+        this.gesture = gesture.split("~")[0];
         this.confidence = confidence;
         this.timeOfExecution = (long) (Math.round(timeOfExecution * 100) / 100.0);
     }
