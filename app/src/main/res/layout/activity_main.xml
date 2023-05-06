@@ -10,7 +10,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonMathSymbolRecognizer"
         android:layout_width="320dp"
-        android:layout_height="48dp"
+        android:layout_height="0dp"
         android:layout_marginTop="120dp"
         android:background="@drawable/rounded_corners"
         android:text="@string/math_symbol_recognizer"
@@ -22,7 +22,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonEquationRecognizer"
         android:layout_width="320dp"
-        android:layout_height="48dp"
+        android:layout_height="0dp"
         android:layout_marginTop="180dp"
         android:background="@drawable/rounded_corners"
         android:text="@string/equation_recognizer"
@@ -34,7 +34,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/buttonDollarN"
         android:layout_width="320dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="240dp"
         android:background="@drawable/rounded_corners"
         android:text="@string/dollar_n_recognizer"
@@ -46,14 +46,14 @@
     <TextView
         android:id="@+id/textViewMainActivityTitle"
         android:layout_width="341dp"
-        android:layout_height="81dp"
+        android:layout_height="0dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="30dp"
         android:layout_marginEnd="40dp"
-        android:text="@string/gesture_recognizer"
         android:gravity="center"
-        android:textSize="30sp"
+        android:text="@string/gesture_recognizer"
         android:textColor="@color/off_white"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,12 +62,13 @@
         android:id="@+id/textViewCredit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="584dp"
+        android:layout_marginTop="548dp"
         android:text="@string/built_by_abdul_samadh_azath"
-        android:textSize="15sp"
         android:textColor="@color/off_white"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/textViewMainActivityTitle"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/textViewMainActivityTitle"
         app:layout_constraintTop_toBottomOf="@+id/textViewMainActivityTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
