@@ -38,7 +38,6 @@ public class Unistroke {
         this.startAngleIndex = numPoints / 8;
 
         this.points = resample(points, this.numPoints);
-        Log.println(Log.ASSERT, "Unistroke", String.format("Name:%s, Points:%s", this.name, this.points.size()));
         this.indicativeAngle = getIndicativeAngle(this.points);
         this.points = rotateBy(this.points, -this.indicativeAngle);
         this.points = scaleDimTo(this.points, this.squareSize, this.oneDThreshold);

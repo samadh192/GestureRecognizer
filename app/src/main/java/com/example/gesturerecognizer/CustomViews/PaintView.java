@@ -27,7 +27,6 @@ public class PaintView extends View {
 
     public PaintView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        Log.println(Log.ASSERT, "TEST", "Paint View Initialized!");
         setFocusable(true);
         setFocusableInTouchMode(true);
         drawPaint = new Paint();

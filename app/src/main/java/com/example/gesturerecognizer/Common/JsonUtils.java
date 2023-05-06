@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 public class JsonUtils {
-    public static ArrayList<Gesture> readGestureFromJson(Context context) throws IOException, JSONException {
+    public static ArrayList<Gesture> readGestureFromJson(Context context, int template) throws IOException, JSONException {
         ArrayList<Point> stroke = new ArrayList<>();
         ArrayList<ArrayList<Point>> strokes = new ArrayList<>();
-        String jsonString = readString(context, R.raw.equation_recognizer_template);
+        String jsonString = readString(context, template);
         JSONObject jsonRoot = new JSONObject(jsonString);
         Iterator<String> keys = jsonRoot.keys();
         ArrayList<Gesture> gestureArrayList = new ArrayList<>();

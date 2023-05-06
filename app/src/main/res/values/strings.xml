@@ -3,4 +3,9 @@
     <string name="clear">Clear</string>
     <string name="submit">Submit</string>
     <string name="paintViewContentDescription">View for drawing Gestures!</string>
+    <string name="math_symbol_recognizer">Math Symbol Recognizer</string>
+    <string name="equation_recognizer">Equation Recognizer</string>
+    <string name="dollar_n_recognizer">Dollar N Recognizer</string>
+    <string name="gesture_recognizer">Gesture Recognizer</string>
+    <string name="built_by_abdul_samadh_azath">Built by Abdul Samadh Azath</string>
 </resources>

@@ -155,8 +155,6 @@ public class Utils {
     }
 
     public static double getPathDistance(ArrayList<Point> pts1, ArrayList<Point> pts2) {
-        Log.println(Log.ASSERT, "TEST", String.format("pts1->length:%s", pts1.size()));
-        Log.println(Log.ASSERT, "TEST", String.format("pts2->length:%s", pts2.size()));
         double d = 0.0;
         for (int i = 0; i < pts1.size(); i++) {
             d += getDistance(pts1.get(i), pts2.get(i));
