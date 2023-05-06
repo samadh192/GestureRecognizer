@@ -85,8 +85,6 @@ public class RecognizerActivity extends AppCompatActivity {
                 }
                 catch (Exception exception){
                     Log.println(Log.ERROR,"EquationEvaluation", String.valueOf(exception));
-                }
-                finally {
                     textView.setText(String.format("Equation %s is invalid!",equation));
                 }
             }
