@@ -26,18 +26,21 @@ public class MainActivity extends AppCompatActivity {
         mathSymbolRecognizerButton.setOnClickListener(v -> {
             intent.putExtra("template",R.raw.equation_recognizer_template);
             intent.putExtra("mode","singleGestureRecognition");
+            intent.putExtra("title",mathSymbolRecognizerButton.getText());
             startActivity(intent);
         });
 
         dollarNRecognizerButton.setOnClickListener(v -> {
             intent.putExtra("template",R.raw.dollar_n_template);
             intent.putExtra("mode","singleGestureRecognition");
+            intent.putExtra("title",dollarNRecognizerButton.getText());
             startActivity(intent);
         });
 
         equationRecognizerButton.setOnClickListener(v -> {
             intent.putExtra("template",R.raw.equation_recognizer_template);
             intent.putExtra("mode","multiGestureRecognition");
+            intent.putExtra("title",equationRecognizerButton.getText());
             startActivity(intent);
         });
     }

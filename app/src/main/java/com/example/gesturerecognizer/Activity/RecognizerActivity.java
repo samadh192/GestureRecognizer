@@ -28,13 +28,15 @@ import java.util.Objects;
 public class RecognizerActivity extends AppCompatActivity {
     Integer template;
     String mode;
+    String title;
     Button clearButton;
     Button submitButton;
     PaintView paintView;
     ArrayList<ArrayList<Point>> strokes;
     ArrayList<ArrayList<ArrayList<Point>>> recognitionObjects;
     ArrayList<Gesture> gestures;
-    TextView textView;
+    TextView resultTextView;
+    TextView titleTextView;
     Recognizer recognizer;
     Segment segment;
     Result result;
@@ -48,11 +50,14 @@ public class RecognizerActivity extends AppCompatActivity {
         paintView = findViewById(R.id.paintView);
         clearButton = findViewById(R.id.clearButton);
         submitButton = findViewById(R.id.submitButton);
-        textView = findViewById(R.id.textView);
+        resultTextView = findViewById(R.id.textViewResult);
+        titleTextView = findViewById(R.id.textViewTitle);
         intent = getIntent();
         template = intent.getIntExtra("template",0);
         mode = intent.getStringExtra("mode");
+        title = intent.getStringExtra("title");
 
+        titleTextView.setText(title);
         recognizer = new Recognizer(true);
 
         try {
@@ -66,14 +71,14 @@ public class RecognizerActivity extends AppCompatActivity {
 
         clearButton.setOnClickListener(v -> {
             paintView.clear();
-            textView.setText("");
+            resultTextView.setText("");
         });
 
         submitButton.setOnClickListener(v -> {
             strokes = paintView.getStrokes();
             if(Objects.equals(mode, "singleGestureRecognition")){
                 result = recognizer.Recognize(strokes);
-                textView.setText(result.getResultString());
+                resultTextView.setText(result.getResultString());
             }
             else if(Objects.equals(mode, "multiGestureRecognition")){
                 String equation = getEquation(strokes);
@@ -81,11 +86,11 @@ public class RecognizerActivity extends AppCompatActivity {
                 try{
                     Expression expression = new ExpressionBuilder(transformExpression(equation)).build();
                     expressionResult = expression.evaluate();
-                    textView.setText(String.format("Equation: %s Result=%s",equation,expressionResult));
+                    resultTextView.setText(String.format("Equation: %s Result=%s",equation,expressionResult));
                 }
                 catch (Exception exception){
                     Log.println(Log.ERROR,"EquationEvaluation", String.valueOf(exception));
-                    textView.setText(String.format("Equation %s is invalid!",equation));
+                    resultTextView.setText(String.format("Equation %s is invalid!",equation));
                 }
             }
         });
